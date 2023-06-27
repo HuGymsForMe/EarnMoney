@@ -1,0 +1,89 @@
+#:kivy 1.11.1
+<registrarse>:
+    MDFloatLayout:
+        md_bg_color: 240/255, 240/255, 240/255, 1
+        id:login_layout
+        #mg_bd_color: 1,1,1,1
+
+        MDIconButton:
+            icon: "chevron-left"
+            user_font_size: "35sp"
+            pos_hint: {"center_y": .95}
+            on_release: app.manager.current = 'login'
+
+        Image:
+            source: "img/ingresos.png"
+            size_hint: .36, .36
+            pos_hint: {"center_x": .22, "center_y": .8}
+        
+        MDLabel:
+            text: "Volver"
+            font_size: "18sp"
+            font_name: "Arial"
+            pos_hint:{"center_x": .615, "center_y": .949}
+
+        MDLabel:
+            text: "Earn Money"
+            font_size: "32sp"
+            font_name: "Arial"
+            pos_hint:{"center_x": .917, "center_y": .815}
+
+        MDLabel:
+            text: "Crea, Ingresa, Genera"
+            font_size: "16sp"
+            font_name: "Arial"
+            color: 120/255, 120/255, 120/255, 1
+            pos_hint:{"center_x": .930, "center_y": .765}
+
+        MDLabel:
+            text: "Nuevo Usuario"
+            font_size: "24sp"
+            font_name: "Arial"
+            color: 41/255, 135/255, 168/255, 1
+            pos_hint:{"center_x": .76, "center_y": .65}
+
+        MDTextField:
+            id: input_nickname
+            hint_text: "Nombre de usuario"
+            helper_text: ""
+            font_name: "Arial"
+            helper_text_mode: "persistent"
+            pos_hint: {"center_x": .5, "center_y": .52}
+            size_hint_x: .85
+            line_color_focus: 0,0,0,1
+
+        Image:
+            source: "img/usuario.png"
+            size_hint: .10, .10
+            pos_hint: {"center_x": .90, "center_y": .54}
+
+        MDTextField:
+            id: input_password
+            hint_text: "Contraseña"
+            helper_text: ""
+            font_name: "Arial"
+            helper_text_mode: "persistent"
+            pos_hint: {"center_x": .5, "center_y": .37}
+            size_hint_x: .85
+            line_color_focus: 0,0,0,1
+            password: True
+
+        Image:
+            source: "img/llave.png"
+            size_hint: .10, .10
+            pos_hint: {"center_x": .90, "center_y": .39}
+
+        MDFlatButton:
+            text: "Registrarse"
+            size_hint: .79, .1
+            font_name: "Arial"
+            pos_hint: {"center_x": .50, "center_y": .20}
+
+            canvas.before:
+                Color:
+                    rgb: 41/255, 135/255, 168/255
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [6]
+            on_release: root.manager.get_screen('registrarse').insert()
