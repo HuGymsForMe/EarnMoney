@@ -1,0 +1,108 @@
+#:kivy 1.11.1
+<MenuPrincipal>:
+    MDFloatLayout:
+        md_bg_color: 240/255, 240/255, 240/255, 1
+        id: menu_principal_layout
+
+        MDIconButton:
+            icon: "chevron-left"
+            user_font_size: "35sp"
+            pos_hint: {"center_y": .95}
+            on_press: app.manager.current = 'login'
+        
+        MDLabel:
+            text: "Volver"
+            font_size: "18sp"
+            font_name: "Arial"
+            pos_hint:{"center_x": .615, "center_y": .949}
+
+        #MENSAJE BIENVENIDO
+        MDLabel:
+            text: "Bienvenido"
+            font_size: "16sp"
+            font_name: "Arial"
+            color: 120/255, 120/255, 120/255, 1
+            pos_hint:{"center_x": .55, "center_y": .88}
+
+        MDLabel:
+            text: ""
+            id: label_nickname
+            font_size: "16sp"
+            font_name: "Arial"
+            color: 120/255, 120/255, 120/255, 1
+            pos_hint:{"center_x": .78, "center_y": .88}
+
+        #SALDO USER
+        MDLabel:
+            text: "Saldo Actual:"
+            font_size: "20sp"
+            font_name: "Arial"
+            pos_hint: {"center_x": .75, "center_y": .78}
+
+        MDLabel:
+            text: ""
+            id: saldo_user
+            font_size: "20sp"
+            font_name: "Arial"
+            pos_hint: {"center_x": 1.1, "center_y": .78}
+
+        MDLabel:
+            text: "¿Qué deseas hacer?"
+            font_size: "24sp"
+            font_type: "Arial"
+            pos_hint: {"center_x": .68, "center_y": .71}
+
+        #BOTONES
+        MDFlatButton:
+            text: "Nuevo Movimiento"
+            size_hint: .79, .1
+            font_name: "Arial"
+            pos_hint: {"center_x": .5, "center_y": .56}
+
+            canvas.before:
+                Color:
+                    rgb: 41/255, 135/255, 168/255
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [6]
+            on_release: app.manager.current = 'nuevo_movimiento'
+
+        MDFlatButton:
+            text: "Mis Movimientos"
+            size_hint: .79, .1
+            font_name: "Arial"
+            pos_hint: {"center_x": .5, "center_y": .41}
+
+            canvas.before:
+                Color:
+                    rgb: 41/255, 135/255, 168/255
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [6]
+
+        MDLabel:
+            text: "Earn Money"
+            font_size: "32sp"
+            font_name: "Arial"
+            pos_hint:{"center_x": .62, "center_y": .17}
+
+        MDLabel:
+            text: "Crea, Ingresa, Genera"
+            font_size: "16sp"
+            font_name: "Arial"
+            color: 120/255, 120/255, 120/255, 1
+            pos_hint:{"center_x": .63, "center_y": .12}
+
+        Image:
+            source: "img/ingresos.png"
+            size_hint: .36, .36
+            pos_hint: {"center_x": .8, "center_y": .15}
+        
+
+
+
+        
+
+        

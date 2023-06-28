@@ -14,7 +14,7 @@ class Login(Screen):
         input_nickname = app.manager.get_screen('login').ids['input_nickname'].text
         input_password = app.manager.get_screen('login').ids['input_password'].text
         config = configparser.ConfigParser()
-        config.read('./sql/config.ini')
+        config.read('./config/config.ini')
 
         host = config['mysql']['host']
         user = config['mysql']['user']
@@ -30,11 +30,12 @@ class Login(Screen):
         count = data[0]
 
         if count == 0:
-            toast('Contrasenia inválida!!!')
+            toast('Contrasenia inválida!!')
         else:
             toast('Perfecto, puedes acceder al sistema')
             now = datetime.now()
             query = f"UPDATE USUARIOS SET LAST_LOGIN = '{now}' WHERE GMAIL = '{str(input_nickname)}' AND PASSWORD = '{str(input_password)}'"
             cursor.execute(query)
             db.commit()
+            self.manager.current = 'menu_principal'
         db.close()

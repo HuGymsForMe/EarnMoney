@@ -1,0 +1,88 @@
+#:kivy 1.11.1
+<NuevoMovimiento>:
+    MDFloatLayout:
+        md_bg_color: 240/255, 240/255, 240/255, 1
+        id: menu_principal_layout
+
+        MDIconButton:
+            icon: "chevron-left"
+            user_font_size: "35sp"
+            pos_hint: {"center_y": .95}
+            on_press: app.manager.current = 'menu_principal'
+        
+        MDLabel:
+            text: "Volver"
+            font_size: "18sp"
+            font_name: "Arial"
+            pos_hint:{"center_x": .615, "center_y": .949}
+        
+        MDLabel:
+            text: "Nuevo Movimiento"
+            font_size: "30sp"
+            font_name: "Arial"
+            pos_hint:{"center_x": .64, "center_y": .85}
+
+        MDTextField:
+            id: input_titulo
+            hint_text: "Título"
+            helper_text: ""
+            font_name: "Arial"
+            helper_text_mode: "persistent"
+            pos_hint: {"center_x": .5, "center_y": .72}
+            size_hint_x: .85
+            line_color_focus: 0,0,0,1
+
+        MDTextField:
+            id: input_descripcion
+            hint_text: "Descripción"
+            helper_text: ""
+            font_name: "Arial"
+            helper_text_mode: "persistent"
+            pos_hint: {"center_x": .5, "center_y": .57}
+            size_hint_x: .85
+            line_color_focus: 0,0,0,1
+
+        MDTextField:
+            id: input_importe
+            hint_text: "Importe"
+            helper_text: ""
+            font_name: "Arial"
+            helper_text_mode: "persistent"
+            pos_hint: {"center_x": .5, "center_y": .42}
+            size_hint_x: .85
+            line_color_focus: 0,0,0,1
+        
+        MDFlatButton:
+            text: "Agregar Movimiento"
+            size_hint: .79, .08
+            font_name: "Arial"
+            pos_hint: {"center_x": .5, "center_y": .28}
+
+            canvas.before:
+                Color:
+                    rgb: 41/255, 135/255, 168/255
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [6]
+            on_release: root.manager.get_screen('nuevo_movimiento').ingress_new_movement()
+
+        MDLabel:
+            text: "Earn Money"
+            font_size: "32sp"
+            font_name: "Arial"
+            pos_hint:{"center_x": .62, "center_y": .14}
+
+        MDLabel:
+            text: "Crea, Ingresa, Genera"
+            font_size: "16sp"
+            font_name: "Arial"
+            color: 120/255, 120/255, 120/255, 1
+            pos_hint:{"center_x": .63, "center_y": .09}
+
+        Image:
+            source: "img/ingresos.png"
+            size_hint: .36, .36
+            pos_hint: {"center_x": .8, "center_y": .12}
+
+        

@@ -2,13 +2,13 @@
 <login>:
     MDFloatLayout:
         md_bg_color: 240/255, 240/255, 240/255, 1
-        id:login_layout
-        #mg_bd_color: 1,1,1,1
+        id: login_layout
 
         MDIconButton:
             icon: "chevron-left"
             user_font_size: "35sp"
             pos_hint: {"center_y": .95}
+            on_release: app.on_close()
 
         Image:
             source: "img/ingresos.png"
@@ -87,6 +87,7 @@
                     pos: self.pos
                     radius: [6]
             on_press: root.ingress()
+            on_release: root.manager.get_screen('menu_principal').mostrar_nombre_saldo()
         
         MDFlatButton:
             text: "Nuevo Usuario"
@@ -101,7 +102,6 @@
                     size: self.size
                     pos: self.pos
                     radius: [6]
-            #on_release: app.root.switch_to('registrarse')
             on_release: app.manager.current = 'registrarse'
 
 
